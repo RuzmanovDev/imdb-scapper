@@ -1,4 +1,3 @@
-/* globals module require */
 
 const SimpleMovie = require("./simple-movie-model");
 
@@ -8,5 +7,10 @@ module.exports = {
     },
     insertManySimpleMovies(movies) {
         SimpleMovie.insertMany(movies);
+    },
+    saveDetailedMovie(limit) {
+        return SimpleMovie.find()
+            .limit(limit)
+            .then();
     }
 };

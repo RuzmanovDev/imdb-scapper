@@ -23,3 +23,21 @@ module.exports.parseSimpleMovie = (selector, html) => {
             return items;
         });
 };
+
+module.exports.parseDetailedMovie = (selector, html) => {
+    $("body").html(html);
+    let items = [];
+    $(selector).each((index, item) => {
+        const $item = $(item);
+
+        items.push({
+            title: $item.html(),
+            url: $item.attr("href")
+        });
+    });
+
+    return Promise.resolve()
+        .then(() => {
+            return items;
+        });
+};
